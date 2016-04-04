@@ -1,0 +1,631 @@
+[
+    {
+        "outputFile": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 42,
+                    "endOffset": 93
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 665,
+                        "endColumn": 42,
+                        "endOffset": 703
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 98,
+                    "endColumn": 42,
+                    "endOffset": 136
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 811,
+                        "endColumn": 42,
+                        "endOffset": 849
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 141,
+                    "endColumn": 50,
+                    "endOffset": 187
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 708,
+                        "endColumn": 50,
+                        "endOffset": 754
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 192,
+                    "endColumn": 50,
+                    "endOffset": 238
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 854,
+                        "endColumn": 50,
+                        "endOffset": 900
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 243,
+                    "endColumn": 51,
+                    "endOffset": 290
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 759,
+                        "endColumn": 51,
+                        "endOffset": 806
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 295,
+                    "endColumn": 51,
+                    "endOffset": 342
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 905,
+                        "endColumn": 51,
+                        "endOffset": 952
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 882,
+                    "endColumn": 48,
+                    "endOffset": 926
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 854,
+                        "endColumn": 48,
+                        "endOffset": 898
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 931,
+                    "endColumn": 53,
+                    "endOffset": 980
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 903,
+                        "endColumn": 53,
+                        "endOffset": 952
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 985,
+                    "endColumn": 53,
+                    "endOffset": 1034
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1008,
+                        "endColumn": 53,
+                        "endOffset": 1057
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 1039,
+                    "endColumn": 50,
+                    "endOffset": 1085
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 957,
+                        "endColumn": 50,
+                        "endOffset": 1003
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1090,
+                    "endColumn": 51,
+                    "endOffset": 1137
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 802,
+                        "endColumn": 51,
+                        "endOffset": 849
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 1142,
+                    "endColumn": 50,
+                    "endOffset": 1188
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 751,
+                        "endColumn": 50,
+                        "endOffset": 797
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1193,
+                    "endColumn": 48,
+                    "endOffset": 1237
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1112,
+                        "endColumn": 48,
+                        "endOffset": 1156
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1242,
+                    "endColumn": 41,
+                    "endOffset": 1279
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 709,
+                        "endColumn": 41,
+                        "endOffset": 746
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1284,
+                    "endColumn": 49,
+                    "endOffset": 1329
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1062,
+                        "endColumn": 49,
+                        "endOffset": 1107
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1334,
+                    "endColumn": 67,
+                    "endOffset": 1397
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1161,
+                        "endColumn": 67,
+                        "endOffset": 1224
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1402,
+                    "endColumn": 43,
+                    "endOffset": 1441
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 665,
+                        "endColumn": 43,
+                        "endOffset": 704
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1446,
+                    "endColumn": 59,
+                    "endOffset": 1501
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 962,
+                        "endColumn": 59,
+                        "endOffset": 1017
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1506,
+                    "endColumn": 69,
+                    "endOffset": 1571
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1022,
+                        "endColumn": 69,
+                        "endOffset": 1087
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1576,
+                    "endColumn": 70,
+                    "endOffset": 1642
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/colors.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1092,
+                        "endColumn": 70,
+                        "endOffset": 1158
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1647,
+                    "endLine": 27,
+                    "endColumn": 13,
+                    "endOffset": 1693
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 836,
+                        "endLine": 22,
+                        "endColumn": 13,
+                        "endOffset": 882
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 1698,
+                    "endColumn": 58,
+                    "endOffset": 1752
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 715,
+                        "endColumn": 58,
+                        "endOffset": 769
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 1757,
+                    "endColumn": 49,
+                    "endOffset": 1802
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 665,
+                        "endColumn": 49,
+                        "endOffset": 710
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 1807,
+                    "endColumn": 48,
+                    "endOffset": 1851
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/config.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 665,
+                        "endColumn": 48,
+                        "endOffset": 709
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 31,
+                    "startColumn": 4,
+                    "startOffset": 1856,
+                    "endColumn": 61,
+                    "endOffset": 1913
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 774,
+                        "endColumn": 61,
+                        "endOffset": 831
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 32,
+                    "startColumn": 4,
+                    "startOffset": 1918,
+                    "endLine": 35,
+                    "endColumn": 12,
+                    "endOffset": 2076
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 665,
+                        "endLine": 20,
+                        "endColumn": 12,
+                        "endOffset": 823
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 36,
+                    "startColumn": 4,
+                    "startOffset": 2081,
+                    "endLine": 38,
+                    "endColumn": 12,
+                    "endOffset": 2179
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 828,
+                        "endLine": 23,
+                        "endColumn": 12,
+                        "endOffset": 926
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 39,
+                    "startColumn": 4,
+                    "startOffset": 2184,
+                    "endLine": 45,
+                    "endColumn": 12,
+                    "endOffset": 2552
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1094,
+                        "endLine": 34,
+                        "endColumn": 12,
+                        "endOffset": 1462
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 46,
+                    "startColumn": 4,
+                    "startOffset": 2557,
+                    "endLine": 53,
+                    "endColumn": 12,
+                    "endOffset": 3030
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 35,
+                        "startColumn": 4,
+                        "startOffset": 1467,
+                        "endLine": 42,
+                        "endColumn": 12,
+                        "endOffset": 1940
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 54,
+                    "startColumn": 4,
+                    "startOffset": 3035,
+                    "endLine": 57,
+                    "endColumn": 12,
+                    "endOffset": 3188
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 55,
+                        "startColumn": 4,
+                        "startOffset": 2571,
+                        "endLine": 58,
+                        "endColumn": 12,
+                        "endOffset": 2724
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 58,
+                    "startColumn": 4,
+                    "startOffset": 3193,
+                    "endLine": 69,
+                    "endColumn": 12,
+                    "endOffset": 3814
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 43,
+                        "startColumn": 4,
+                        "startOffset": 1945,
+                        "endLine": 54,
+                        "endColumn": 12,
+                        "endOffset": 2566
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 70,
+                    "startColumn": 4,
+                    "startOffset": 3819,
+                    "endLine": 73,
+                    "endColumn": 12,
+                    "endOffset": 3977
+                },
+                "from": {
+                    "file": "/Users/doge/Desktop/markers/app/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 931,
+                        "endLine": 27,
+                        "endColumn": 12,
+                        "endOffset": 1089
+                    }
+                }
+            }
+        ]
+    }
+]

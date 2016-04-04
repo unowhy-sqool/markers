@@ -99,7 +99,7 @@ public class MarkersActivity extends Activity
     private View mToolsView;
     private View mLogoView;
     private View mComboHudView;
-    
+
     private Dialog mMenuDialog;
 
     private SharedPreferences mPrefs;
@@ -108,14 +108,14 @@ public class MarkersActivity extends Activity
 
     protected MediaScannerConnection mMediaScannerConnection;
     private String mPendingShareFile;
-    private MediaScannerConnectionClient mMediaScannerClient = 
+    private MediaScannerConnectionClient mMediaScannerClient =
             new MediaScannerConnection.MediaScannerConnectionClient() {
                 @Override
                 public void onMediaScannerConnected() {
                     if (DEBUG) Log.v(TAG, "media scanner connected");
                     scanNext();
                 }
-                
+
                 private void scanNext() {
                     synchronized (mDrawingsToScan) {
                         if (mDrawingsToScan.isEmpty()) {
@@ -126,7 +126,7 @@ public class MarkersActivity extends Activity
                         mMediaScannerConnection.scanFile(fn, "image/png");
                     }
                 }
-        
+
                 @Override
                 public void onScanCompleted(String path, Uri uri) {
                     if (DEBUG) Log.v(TAG, "File scanned: " + path);
@@ -146,13 +146,14 @@ public class MarkersActivity extends Activity
     private Bitmap imgRecup;
     private File out;
     private boolean quit;
+    private String extraKey = "null";
 
 
     public static class ColorList extends LinearLayout {
         public ColorList(Context c, AttributeSet as) {
             super(c, as);
         }
-        
+
         @Override
         protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
             super.onLayout(changed, left, top, right, bottom);
@@ -170,10 +171,10 @@ public class MarkersActivity extends Activity
 
     @Override
     public Object onRetainNonConfigurationInstance() {
-    	((ViewGroup)mSlate.getParent()).removeView(mSlate);
+        ((ViewGroup)mSlate.getParent()).removeView(mSlate);
         return mSlate;
     }
-    
+
     public static interface ViewFunc {
         public void apply(View v);
     }
@@ -217,9 +218,9 @@ public class MarkersActivity extends Activity
         setContentView(R.layout.main);
         mSlate = (Slate) getLastNonConfigurationInstance();
         if (mSlate == null) {
-        	mSlate = new Slate(this);
+            mSlate = new Slate(this);
 
-        	// Load the old buffer if necessary
+            // Load the old buffer if necessary
             if (!mJustLoadedImage) {
                 loadDrawing(WIP_FILENAME, true);
             } else {
@@ -235,11 +236,11 @@ public class MarkersActivity extends Activity
             mZoomView.setAlpha(0);
         }
         root.addView(mZoomView, 0);
-        
-        mMediaScannerConnection =
-                new MediaScannerConnection(MarkersActivity.this, mMediaScannerClient); 
 
-        
+        mMediaScannerConnection =
+                new MediaScannerConnection(MarkersActivity.this, mMediaScannerClient);
+
+
         if (icicle != null) {
             onRestoreInstanceState(icicle);
         }
@@ -261,7 +262,7 @@ public class MarkersActivity extends Activity
         }
 
         setupLayers(); // the HUD needs to have a software layer at all times
-                       // so we can draw through it quickly
+        // so we can draw through it quickly
 
         mDebugButton = findViewById(R.id.debug);
 
@@ -277,11 +278,11 @@ public class MarkersActivity extends Activity
                 mSlate.setPenSize(min, max);
                 mLastTool = mActiveTool;
                 mActiveTool = tool;
-                
+
                 if (mLastTool != mActiveTool) {
                     mLastTool.deactivate();
                     mPrefs.edit().putString(PREF_LAST_TOOL, (String) mActiveTool.getTag())
-                        .commit();
+                            .commit();
                 }
             }
             @Override
@@ -306,7 +307,7 @@ public class MarkersActivity extends Activity
                 if (mLastPenType != mActivePenType) {
                     mLastPenType.deactivate();
                     mPrefs.edit().putString(PREF_LAST_TOOL_TYPE, (String) mActivePenType.getTag())
-                        .commit();
+                            .commit();
                 }
             }
             @Override
@@ -314,11 +315,11 @@ public class MarkersActivity extends Activity
                 if (tool == mActiveTool && tool != mLastTool) {
                     mLastTool.click();
                     mPrefs.edit().putString(PREF_LAST_TOOL, (String) mActiveTool.getTag())
-                        .commit();
+                            .commit();
                 } else if (tool == mActiveColor && tool != mLastColor) {
                     mLastColor.click();
                     mPrefs.edit().putInt(PREF_LAST_COLOR, ((SwatchButton) mLastColor).color)
-                        .commit();
+                            .commit();
                 }
             }
             @Override
@@ -331,11 +332,11 @@ public class MarkersActivity extends Activity
                 mZoomView.setEnabled(true);
                 mLastTool = mActiveTool;
                 mActiveTool = me;
-                
+
                 if (mLastTool != mActiveTool) {
                     mLastTool.deactivate();
                     mPrefs.edit().putString(PREF_LAST_TOOL, (String) mActiveTool.getTag())
-                        .commit();
+                            .commit();
                 }
             }
 
@@ -344,7 +345,7 @@ public class MarkersActivity extends Activity
                 mSlate.resetZoom();
             }
         };
-        
+
         descend((ViewGroup) mColorsView, new ViewFunc() {
             @Override
             public void apply(View v) {
@@ -365,7 +366,7 @@ public class MarkersActivity extends Activity
         if (penMediumButton != null) {
             penMediumButton.setCallback(toolCB);
         }
-        
+
         final ToolButton penThickButton = (ToolButton) findViewById(R.id.pen_thick);
         penThickButton.setCallback(toolCB);
 
@@ -381,17 +382,17 @@ public class MarkersActivity extends Activity
         if (typeFeltTipButton != null) {
             typeFeltTipButton.setCallback(toolCB);
         }
-        
+
         final ToolButton typeAirbrushButton = (ToolButton) findViewById(R.id.airbrush_marker);
         if (typeAirbrushButton != null) {
             typeAirbrushButton.setCallback(toolCB);
         }
-        
+
         final ToolButton typeFountainPenButton = (ToolButton) findViewById(R.id.fountainpen_marker);
         if (typeFountainPenButton != null) {
             typeFountainPenButton.setCallback(toolCB);
         }
-        
+
         mLastPenType = mActivePenType = typeWhiteboardButton;
 
         loadSettings();
@@ -449,9 +450,9 @@ public class MarkersActivity extends Activity
     @Override
     public void onResume() {
         super.onResume();
-        
+
         String orientation = getString(R.string.orientation);
-        
+
         setRequestedOrientation(
                 "landscape".equals(orientation)
                         ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
@@ -460,7 +461,7 @@ public class MarkersActivity extends Activity
 
     @Override
     public void onConfigurationChanged (Configuration newConfig) {
-    	super.onConfigurationChanged(newConfig);
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -487,7 +488,7 @@ public class MarkersActivity extends Activity
         sb.append("}");
         return sb.toString();
     }
-    
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -502,8 +503,10 @@ public class MarkersActivity extends Activity
         } else if (a.equals(Intent.ACTION_SEND)) {
             // XXX: what happens to the old drawing? we should really move to auto-save
             mSlate.clear(uriRecup);
-            loadImageFromContentUri((Uri) startIntent.getParcelableExtra(Intent.EXTRA_STREAM));
+            extraKey = startIntent.getStringExtra("sqool");
             pathOut = startIntent.getStringExtra("pathOut");
+            loadImageFromContentUri((Uri) startIntent.getParcelableExtra(Intent.EXTRA_STREAM));
+
         }
     }
 
@@ -558,7 +561,7 @@ public class MarkersActivity extends Activity
 
                 if (!show) {
                     flags |= View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
                 }
             }
 
@@ -569,20 +572,20 @@ public class MarkersActivity extends Activity
         if (!show) {
             if (hasAnimations() && animate) {
                 AnimatorSet a = new AnimatorSet();
-                AnimatorSet.Builder b = 
+                AnimatorSet.Builder b =
                         a.play(ObjectAnimator.ofFloat(mLogoView, "alpha", 1f, 0.5f))
-                         .with(ObjectAnimator.ofFloat(mActionBarView, "alpha", 1f, 0f))
-                         .with(ObjectAnimator.ofFloat(mActionBarView, "translationY",
-                                 0f, -actionBarHeight));
+                                .with(ObjectAnimator.ofFloat(mActionBarView, "alpha", 1f, 0f))
+                                .with(ObjectAnimator.ofFloat(mActionBarView, "translationY",
+                                        0f, -actionBarHeight));
                 if (mComboHudView != null) {
                     b.with(ObjectAnimator.ofFloat(mComboHudView, "alpha", 1f, 0f));
                 } else {
                     b.with(ObjectAnimator.ofFloat(mColorsView, "alpha", 1f, 0f))
-                     .with(ObjectAnimator.ofFloat(mColorsView, "translationY",
-                             0f, actionBarHeight))
-                     .with(ObjectAnimator.ofFloat(mToolsView, "alpha", 1f, 0f))
-                     .with(ObjectAnimator.ofFloat(mToolsView, "translationX",
-                             0f, -actionBarHeight));
+                            .with(ObjectAnimator.ofFloat(mColorsView, "translationY",
+                                    0f, actionBarHeight))
+                            .with(ObjectAnimator.ofFloat(mToolsView, "alpha", 1f, 0f))
+                            .with(ObjectAnimator.ofFloat(mToolsView, "translationX",
+                                    0f, -actionBarHeight));
                 }
                 a.addListener(new AnimatorListenerAdapter() {
                     public void onAnimationEnd(Animator a) {
@@ -619,20 +622,20 @@ public class MarkersActivity extends Activity
             mActionBarView.setVisibility(View.VISIBLE);
             if (hasAnimations() && animate) {
                 AnimatorSet a = new AnimatorSet();
-                AnimatorSet.Builder b = 
+                AnimatorSet.Builder b =
                         a.play(ObjectAnimator.ofFloat(mLogoView, "alpha", 0.5f, 1f))
-                         .with(ObjectAnimator.ofFloat(mActionBarView, "alpha", 0f, 1f))
-                         .with(ObjectAnimator.ofFloat(mActionBarView, "translationY",
-                                 -actionBarHeight, 0f));
+                                .with(ObjectAnimator.ofFloat(mActionBarView, "alpha", 0f, 1f))
+                                .with(ObjectAnimator.ofFloat(mActionBarView, "translationY",
+                                        -actionBarHeight, 0f));
                 if (mComboHudView != null) {
                     b.with(ObjectAnimator.ofFloat(mComboHudView, "alpha", 0f, 1f));
                 } else {
                     b.with(ObjectAnimator.ofFloat(mColorsView, "alpha", 0f, 1f))
-                     .with(ObjectAnimator.ofFloat(mColorsView, "translationY",
-                             actionBarHeight, 0f))
-                     .with(ObjectAnimator.ofFloat(mToolsView, "alpha", 0f, 1f))
-                     .with(ObjectAnimator.ofFloat(mToolsView, "translationX",
-                             -actionBarHeight, 0f));
+                            .with(ObjectAnimator.ofFloat(mColorsView, "translationY",
+                                    actionBarHeight, 0f))
+                            .with(ObjectAnimator.ofFloat(mToolsView, "alpha", 0f, 1f))
+                            .with(ObjectAnimator.ofFloat(mToolsView, "translationX",
+                                    -actionBarHeight, 0f));
                 }
                 a.setDuration(200);
                 a.start();
@@ -646,36 +649,34 @@ public class MarkersActivity extends Activity
     }
 
     public void clickClear(View v) {
-       if(mSlate.clear(uriRecup) == true){
+        if(mSlate.clear(uriRecup) == true && extraKey.equals("sqool")){
+
+            try {
+                File fileRecup = new File(out.getAbsolutePath().replace("_RecupFileTempSqoolMarkers", ""));
+                //contentUri = Uri.fromFile(fileRecup);
+                // b = MediaStore.Images.Media.getBitmap(getContentResolver(), contentUri);
+
+                InputStream in = new FileInputStream(out);
+                OutputStream outSt = null;
+                outSt = new FileOutputStream(fileRecup);
+                // Transfer bytes from in to out
+                byte[] buf = new byte[1024];
+                int len;
+                while ((len = in.read(buf)) > 0) {
+                    outSt.write(buf, 0, len);
+                }
+                in.close();
+                outSt.close();
+                loadImageFromContentUri(Uri.fromFile(fileRecup));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
 
 
-               try {
-                   File fileRecup = new File(out.getAbsolutePath().replace("_RecupFileTempSqoolMarkers", ""));
-                   //contentUri = Uri.fromFile(fileRecup);
-                  // b = MediaStore.Images.Media.getBitmap(getContentResolver(), contentUri);
-
-                   InputStream in = new FileInputStream(out);
-                   OutputStream outSt = null;
-                   outSt = new FileOutputStream(fileRecup);
-                   // Transfer bytes from in to out
-                   byte[] buf = new byte[1024];
-                   int len;
-                   while ((len = in.read(buf)) > 0) {
-                       outSt.write(buf, 0, len);
-                   }
-                   in.close();
-                   outSt.close();
-                   loadImageFromContentUri(Uri.fromFile(fileRecup));
-               } catch (FileNotFoundException e) {
-                   e.printStackTrace();
-               } catch (IOException e) {
-                   e.printStackTrace();
-               }
-
-
-
-       }
+        }
     }
 
     public boolean loadDrawing(String filename) {
@@ -698,7 +699,7 @@ public class MarkersActivity extends Activity
         d = new File(d, temporary ? IMAGE_TEMP_DIRNAME : IMAGE_SAVE_DIRNAME);
         final String filePath = new File(d, filename).toString();
         if (DEBUG) Log.d(TAG, "loadDrawing: " + filePath);
-        
+
         if (d.exists()) {
             BitmapFactory.Options opts = new BitmapFactory.Options();
             opts.inDither = false;
@@ -728,7 +729,7 @@ public class MarkersActivity extends Activity
             if (DEBUG) Log.e(TAG, "save: null bitmap");
             return;
         }
-        
+
         final String _filename = filename;
         final boolean _temporary = temporary;
         final boolean _share = share;
@@ -746,8 +747,6 @@ public class MarkersActivity extends Activity
                 String fn = null;
 
                 try {
-
-
                     File d = getPicturesDirectory();
                     d = new File(d, _temporary ? IMAGE_TEMP_DIRNAME : IMAGE_SAVE_DIRNAME);
                     if (!d.exists()) {
@@ -763,11 +762,11 @@ public class MarkersActivity extends Activity
                         }
                     }
                     File file;
-                    if (uriRecup != null)
+                    if (uriRecup != null && extraKey.equals("sqool"))
                         file = new File(uriRecup.getPath());
                     else
                         file = new File(d, _filename);
-                    if (DEBUG) Log.d(TAG, "save: saving " + file);
+                    Log.d(TAG, "save: saving " + file);
                     OutputStream os = new FileOutputStream(file);
                     localBits.compress(Bitmap.CompressFormat.PNG, 0, os);
                     localBits.recycle();
@@ -777,7 +776,7 @@ public class MarkersActivity extends Activity
                 } catch (IOException e) {
                     Log.e(TAG, "save: error: " + e);
                 }
-                if (quit == true) {
+                if (quit == true && extraKey.equals("sqool")) {
                     System.exit(1);
                 }
                 return fn;
@@ -802,9 +801,8 @@ public class MarkersActivity extends Activity
         };
 
 
-        if(uriRecup != null) {
+        if(uriRecup != null && extraKey.equals("sqool") && _share == false) {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(MarkersActivity.this);
-
 
             // Setting Dialog Title
             alertDialog.setTitle("Voulez vous retourner à Sqoollesson une fois sauvegardé ?");
@@ -831,17 +829,20 @@ public class MarkersActivity extends Activity
 
             alertDialog.show();
         }
+        else{
+            saveFiles.execute();
+        }
 
 
 
-        
+
     }
 
     public void clickSave(View v) {
         if (mSlate.isEmpty()) return;
-        
+
         v.setEnabled(false);
-        final String filename = System.currentTimeMillis() + ".png"; 
+        final String filename = System.currentTimeMillis() + ".png";
         saveDrawing(filename);
         Toast.makeText(this, "Drawing saved: " + filename, Toast.LENGTH_SHORT).show();
         v.setEnabled(true);
@@ -851,7 +852,7 @@ public class MarkersActivity extends Activity
         if (mSlate.isEmpty()) return;
 
         v.setEnabled(false);
-        final String filename = System.currentTimeMillis() + ".png"; 
+        final String filename = System.currentTimeMillis() + ".png";
         saveDrawing(filename, 
                 /*temporary=*/ false, /*animate=*/ true, /*share=*/ false, /*clear=*/ true);
         Toast.makeText(this, "Drawing saved: " + filename, Toast.LENGTH_SHORT).show();
@@ -879,19 +880,19 @@ public class MarkersActivity extends Activity
     public void clickLoad(View unused) {
         hideOverflow();
         Intent i = new Intent(Intent.ACTION_PICK,
-                       android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(i, LOAD_IMAGE); 
+                android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(i, LOAD_IMAGE);
     }
 
     public void clickDebug(View unused) {
         hideOverflow();
         boolean debugMode = (mSlate.getDebugFlags() == 0); // toggle 
         mSlate.setDebugFlags(debugMode
-            ? Slate.FLAG_DEBUG_EVERYTHING
-            : 0);
+                ? Slate.FLAG_DEBUG_EVERYTHING
+                : 0);
         mDebugButton.setSelected(debugMode);
         Toast.makeText(this, "Debug mode " + ((mSlate.getDebugFlags() == 0) ? "off" : "on"),
-            Toast.LENGTH_SHORT).show();
+                Toast.LENGTH_SHORT).show();
     }
 
     public void clickUndo(View unused) {
@@ -942,12 +943,12 @@ public class MarkersActivity extends Activity
         if (mMenuDialog == null) {
             LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
             View layout = inflater.inflate(R.layout.overflow_menu, null);
-    
-    //        TextView text = (TextView) layout.findViewById(R.id.text);
-    //        text.setText("Hello, this is a custom dialog!");
-    //        ImageView image = (ImageView) layout.findViewById(R.id.image);
-    //        image.setImageResource(R.drawable.android);
-    
+
+            //        TextView text = (TextView) layout.findViewById(R.id.text);
+            //        text.setText("Hello, this is a custom dialog!");
+            //        ImageView image = (ImageView) layout.findViewById(R.id.image);
+            //        image.setImageResource(R.drawable.android);
+
             mMenuDialog = new Dialog(this);
             //mMenuDialog = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_DARK).create();
             Window dialogWin  = mMenuDialog.getWindow();
@@ -960,7 +961,7 @@ public class MarkersActivity extends Activity
             dialogWin.setAttributes(winParams);
             dialogWin.setWindowAnimations(android.R.style.Animation_Translucent);
             dialogWin.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-            mMenuDialog.setCanceledOnTouchOutside(true); 
+            mMenuDialog.setCanceledOnTouchOutside(true);
 
             mMenuDialog.setContentView(layout);
             // bash the background
@@ -976,16 +977,16 @@ public class MarkersActivity extends Activity
     public void setPenColor(int color) {
         mSlate.setPenColor(color);
     }
-    
+
     public void setPenType(int type) {
         mSlate.setPenType(type);
     }
-    
+
     protected void loadImageFromIntent(Intent imageReturnedIntent) {
         Uri contentUri = imageReturnedIntent.getData();
         loadImageFromContentUri(contentUri);
     }
-    
+
     protected void loadImageFromContentUri(Uri contentUri) {
         Toast.makeText(this, "Loading from " + contentUri, Toast.LENGTH_SHORT).show();
         uriRecup = contentUri;
@@ -998,12 +999,14 @@ public class MarkersActivity extends Activity
             file = new File(contentUri.getPath());
 
             Bitmap b = null;
-
-            if(!file.getPath().contains("_RecupFileTempSqoolMarkers")) {
+// protect
+            if(!file.getPath().contains("_RecupFileTempSqoolMarkers") && extraKey.equals("sqool")) {
                 String[] pathCopy = file.getPath().split("\\.");
                 Log.e(TAG, "couldn't get bitmap from " + pathCopy.length);
                 out = new File(pathCopy[0] + "." + pathCopy[1] + "_RecupFileTempSqoolMarkers." + pathCopy[2]);
+
                 if (!out.exists()) {
+
                     InputStream in = new FileInputStream(file);
                     OutputStream outSt = new FileOutputStream(out);
 
@@ -1017,7 +1020,7 @@ public class MarkersActivity extends Activity
                     outSt.close();
                 }
             }
-                 b = MediaStore.Images.Media.getBitmap(getContentResolver(), contentUri);
+            b = MediaStore.Images.Media.getBitmap(getContentResolver(), contentUri);
 
             if (b != null) {
                 mSlate.paintBitmap(b);
@@ -1032,14 +1035,14 @@ public class MarkersActivity extends Activity
         }
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) { 
-        super.onActivityResult(requestCode, resultCode, imageReturnedIntent); 
+    protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
+        super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
 
-        switch (requestCode) { 
-        case LOAD_IMAGE:
-            if (resultCode == RESULT_OK) {
-                loadImageFromIntent(imageReturnedIntent);
-            }
+        switch (requestCode) {
+            case LOAD_IMAGE:
+                if (resultCode == RESULT_OK) {
+                    loadImageFromIntent(imageReturnedIntent);
+                }
         }
     }
 

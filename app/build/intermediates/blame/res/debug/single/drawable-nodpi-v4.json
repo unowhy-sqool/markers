@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/checks_small_dark.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-nodpi/checks_small_dark.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/checks_light.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-nodpi/checks_light.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/circle.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-nodpi/circle.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/uncledan_save.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-nodpi/uncledan_save.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/fountainpen.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-nodpi/fountainpen.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/airbrush_dark.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-nodpi/airbrush_dark.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/grabber.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-nodpi/grabber.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/uncledan.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-nodpi/uncledan.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/airbrush_light.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-nodpi/airbrush_light.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-nodpi-v4/circle_1bpp.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-nodpi/circle_1bpp.png"
+    }
+]

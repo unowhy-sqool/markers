@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/launcher_icon.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-mdpi/launcher_icon.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/markers.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-mdpi/markers.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/icon.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-mdpi/icon.png"
+    },
+    {
+        "merged": "/Users/doge/Desktop/markers/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/qr.png",
+        "source": "/Users/doge/Desktop/markers/app/src/main/res/drawable-mdpi/qr.png"
+    }
+]
