@@ -805,10 +805,10 @@ public class MarkersActivity extends Activity
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(MarkersActivity.this);
 
             // Setting Dialog Title
-            alertDialog.setTitle("Voulez vous retourner à Sqoollesson une fois sauvegardé ?");
+            alertDialog.setTitle("Sauvegarder le dessin");
 
             // Setting Dialog Message
-            alertDialog.setMessage("Sauvegarder puis quitter SqoolMarkers");
+            alertDialog.setMessage("Sauvegarder le dessin et revenir à l'exercice ?");
 
 
             // Setting OK Button
@@ -832,9 +832,6 @@ public class MarkersActivity extends Activity
         else{
             saveFiles.execute();
         }
-
-
-
 
     }
 
@@ -866,33 +863,50 @@ public class MarkersActivity extends Activity
     }
 
     public void clickShare(View v) {
-        hideOverflow();
-        setThingyEnabled(v, false);
-        final String filename = System.currentTimeMillis() + ".png";
-        // can't use a truly temporary file because:
-        // - we want mediascanner to give us a content: URI for it; some apps don't like file: URIs
-        // - if mediascanner scans it, it will show up in Gallery, so it might as well be a regular drawing
-        saveDrawing(filename,
+        if(!extraKey.equals("sqool")) {
+            hideOverflow();
+            setThingyEnabled(v, false);
+            final String filename = System.currentTimeMillis() + ".png";
+            // can't use a truly temporary file because:
+            // - we want mediascanner to give us a content: URI for it; some apps don't like file: URIs
+            // - if mediascanner scans it, it will show up in Gallery, so it might as well be a regular drawing
+            saveDrawing(filename,
                 /*temporary=*/ false, /*animate=*/ false, /*share=*/ true, /*clear=*/ false);
-        setThingyEnabled(v, true);
+            setThingyEnabled(v, true);
+        }else{
+            Toast.makeText(this, "Impossible pendant un exercice", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void clickLoad(View unused) {
-        hideOverflow();
-        Intent i = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-        startActivityForResult(i, LOAD_IMAGE);
+        if(!extraKey.equals("sqool")) {
+            hideOverflow();
+            Intent i = new Intent(Intent.ACTION_PICK,
+                    android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            startActivityForResult(i, LOAD_IMAGE);
+        }else{
+            Toast.makeText(this, "Impossible pendant un exercice", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void clickDebug(View unused) {
-        hideOverflow();
-        boolean debugMode = (mSlate.getDebugFlags() == 0); // toggle 
-        mSlate.setDebugFlags(debugMode
-                ? Slate.FLAG_DEBUG_EVERYTHING
-                : 0);
-        mDebugButton.setSelected(debugMode);
-        Toast.makeText(this, "Debug mode " + ((mSlate.getDebugFlags() == 0) ? "off" : "on"),
-                Toast.LENGTH_SHORT).show();
+
+
+        if(!extraKey.equals("sqool")) {
+            hideOverflow();
+            boolean debugMode = (mSlate.getDebugFlags() == 0); // toggle
+            mSlate.setDebugFlags(debugMode
+                    ? Slate.FLAG_DEBUG_EVERYTHING
+                    : 0);
+            mDebugButton.setSelected(debugMode);
+            Toast.makeText(this, "Debug mode " + ((mSlate.getDebugFlags() == 0) ? "off" : "on"),
+                    Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Impossible pendant un exercice", Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     public void clickUndo(View unused) {
@@ -900,8 +914,14 @@ public class MarkersActivity extends Activity
     }
 
     public void clickAbout(View unused) {
-        hideOverflow();
-        About.show(this);
+
+        if(!extraKey.equals("sqool")) {
+            hideOverflow();
+            About.show(this);
+        }else{
+            Toast.makeText(this, "Impossible pendant un exercice", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void clickQr(View unused) {
