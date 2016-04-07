@@ -1,4 +1,31 @@
+buildscript {
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+
+    repositories {
+        maven { url 'http://gitlab.unowhy.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply plugin: 'com.kageiit.url-cache'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+dependencies {
+    compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
+        transitive = true;
+    }
+}
+
+apply from: urlCache.get("http://gitlab.unowhy.com/sqool/sqool_manager_client/raw/develop/sqoolcommon/common.gradle?private_token=${GITLAB_PV_TOKEN}")
+
 
 android {
     compileSdkVersion 19
@@ -6,14 +33,68 @@ android {
 
     defaultConfig {
         applicationId "com.unowhy.sqoolmarkers"
-        minSdkVersion 5
-        targetSdkVersion 19
+        minSdkVersion 19
+        targetSdkVersion 21
+    }
+
+    signingConfigs {
+
+        pegatron {
+            storeFile file(SQOOL_LAUNCHER_RELEASE_KEYSTORE)
+            storePassword SQOOL_LAUNCHER_RELEASE_KS_PWD
+            keyAlias SQOOL_LAUNCHER_RELEASE_ALIAS
+            keyPassword SQOOL_LAUNCHER_RELEASE_ALIAS_PWD
+        }
+
+        malata {
+            storeFile file(SQOOL_LAUNCHER_RELEASE_KEYSTORE)
+            storePassword SQOOL_LAUNCHER_RELEASE_KS_PWD
+            keyAlias SQOOL_LAUNCHER_RELEASE_ALIAS
+            keyPassword SQOOL_LAUNCHER_RELEASE_ALIAS_PWD
+        }
+
+    }
+
+    productFlavors {
+        pegatron {
+            signingConfig signingConfigs.pegatron
+        }
+
+        malata {
+            signingConfig signingConfigs.malata
+            minSdkVersion 21
+        }
     }
 
     buildTypes {
+
         release {
+            debuggable false
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            productFlavors.malata.signingConfig signingConfigs.malata
+            productFlavors.pegatron.signingConfig signingConfigs.pegatron
+            // proguardFiles 'sqoolproguard.pro'
+//            productFlavors.main.signingConfig signingConfigs.release
+//            productFlavors.malata.signingConfig signingConfigs.malata
+//            productFlavors.pegatron.signingConfig signingConfigs.release
+//            productFlavors.main.signingConfig signingConfigs.release
+
+        }
+        debug {
+            initWith release
+            minifyEnabled false
+            debuggable true
+//            productFlavors.main.signingConfig signingConfigs.debug
+//            productFlavors.malata.signingConfig signingConfigs.malata
+//            productFlavors.pegatron.signingConfig signingConfigs.debug
+        }
+        applicationVariants.all { variant ->
+            variant.assemble.doLast {
+                variant.outputs.each { output ->
+                    renameFinalApk(output.outputFile, applicationId)
+                }
+            }
         }
     }
+
 }
