@@ -16,6 +16,8 @@
 
 package com.google.android.apps.markers;
 
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -206,6 +208,7 @@ public class MarkersActivity extends Activity
     public void onCreate(Bundle icicle)
     {
         super.onCreate(icicle);
+        Fabric.with(this, new Crashlytics());
 
         final Window win = getWindow();
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
