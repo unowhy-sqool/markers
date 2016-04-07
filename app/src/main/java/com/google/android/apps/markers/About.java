@@ -81,7 +81,7 @@ class About {
         TextView title = (TextView) layout.findViewById(R.id.title);
         Typeface light = Typeface.create("sans-serif-light", Typeface.NORMAL);
         title.setTypeface(light);
-        title.setText(activity.getString(R.string.app_name) + " " + getVersionString(activity));
+        title.setText("Modified by SQOOL for the SQOOL MARKERS application");
 
         WebView webview = (WebView) layout.findViewById(R.id.html);
         webview.loadDataWithBaseURL("file:///android_asset/", 
